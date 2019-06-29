@@ -359,6 +359,7 @@ double ReadInputFromCard()
 #endif /*PROTOTYPE_INPUT*/
 
 #if defined(DIGITAL_OUTPUT_V120) || defined(DIGITAL_OUTPUT_V150)
+// Set 0 for RelayPin : 1 for SSR
 byte outputType = 1;
 const byte RelayPin = 5;
 const byte SSRPin = 6;
@@ -382,10 +383,11 @@ void EEPROMBackupOutputParams(int offset)
   EEPROM.write(offset, outputType);
   EEPROM_writeAnything(offset+1, WindowSize);
 }
+// Bypasses problem reading EEPROM and outputType always being read as Relay and not SSR
 void EEPROMRestoreOutputParams(int offset)
 {
-  outputType = EEPROM.read(offset);
-  EEPROM_readAnything(offset+1, WindowSize);
+  //outputType = EEPROM.read(offset);
+  //EEPROM_readAnything(offset+1, WindowSize);
 }
 
 void InitializeOutputCard()

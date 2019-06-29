@@ -1,6 +1,6 @@
 #ifndef PID_AutoTune_v0
 #define PID_AutoTune_v0
-#define LIBRARY_VERSION	0.0.0
+// #define LIBRARY_VERSION	0.0.0
 
 class PID_ATune
 {
@@ -53,6 +53,3 @@ class PID_ATune
 	
 };
 #endif
-
-
-
